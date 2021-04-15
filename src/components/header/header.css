@@ -1,0 +1,18 @@
+.header {
+	background: #454511;
+	height: 150px;
+	display: flex;
+}
+
+.header .headerItem{
+	width: 30%;
+	margin: 1.75%;
+	background: teal;
+}
+
+.headerItem .title , .display{
+	height: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,10 @@
+.slot {
+	width: 700px;
+	height: 600px;
+	background: teal;
+	margin: 50px auto;
+}
+
+.slot .drums{
+	display: flex;
+}

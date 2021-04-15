@@ -1,0 +1,13 @@
+.drum {
+	background: #fff;
+	width: 32%;
+	height: 300px;
+	margin: 20px 0.75%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.drum img{
+	width: 100%;
+}
