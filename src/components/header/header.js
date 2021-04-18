@@ -4,13 +4,8 @@ import "./header.css";
 
 export default class Header extends Component {
 	
-	onValueChange = (e) => {
-		this.props.onBetChange(e.target.value);
-	}
-	
-	
-	render() {
-		const {balance, lastWin, bet = 50} = this.props;
+render() {
+		const {balance, lastWin, bet, onReduceBet, onIncreaseBet} = this.props;
 		
 		return (
 		<div className="header">
@@ -24,13 +19,11 @@ export default class Header extends Component {
 			</div>
 				<div className="headerItem">
 			   <div className="title">Bet</div>
-					<form className="display">
-						<input
-							onChange={this.onValueChange}
-							type="text"
-							className="display"
-							value={bet}/>
-					</form>
+                  <div className="display">
+							<button onClick={onReduceBet}>-</button>
+ 							 <span>{bet}</span>
+							<button onClick={onIncreaseBet}>+</button>
+						</div>
 			</div>
 		</div>
 		)

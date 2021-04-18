@@ -22,12 +22,17 @@ export default class Slot extends Component {
 		autoSpinTimerId: null
 	}
     
-
-    onBetChange = (bet) => {
+    onReduceBet = () => {
 		this.setState({
-			bet
+			bet: this.state.bet - 1
 		});
-	}
+	 }
+   
+	 onIncreaseBet = () => {
+		this.setState({
+			bet: this.state.bet + 1
+		});
+	 }
 
 	
 	makeSpin = () => {
@@ -123,7 +128,8 @@ export default class Slot extends Component {
 		return (
 			<div className="slot">
 			 	 <Header 
-					  onBetChange={ this.onBetChange}
+					  onIncreaseBet={ this.onIncreaseBet}
+					  onReduceBet={ this.onReduceBet}
 					  balance={balance}
 					  lastWin={lastWin}
 					  bet={bet}/>
