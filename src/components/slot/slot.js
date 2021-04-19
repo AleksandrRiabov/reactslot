@@ -1,8 +1,11 @@
 import React, {Component} from "react";
 import "./slot.css";
 import Header from "../header/header.js";
-import Drums from "../drums/drums.js";
 import Footer from "../footer/footer.js";
+import GamblePage from "../pages/gamblePage/gamblePage.js";
+import MainGamePage from "../pages/mainGamePage/mainGamePage.js";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+
 
 export default class Slot extends Component {
 	state = {
@@ -126,24 +129,29 @@ export default class Slot extends Component {
 		
 		
 		return (
-			<div className="slot">
-			 	 <Header 
-					  onIncreaseBet={ this.onIncreaseBet}
-					  onReduceBet={ this.onReduceBet}
-					  balance={balance}
-					  lastWin={lastWin}
-					  bet={bet}/>
-			    <Drums firstSlot={firstSlot}
-					secondSlot={secondSlot}
-					thirdSlot={thirdSlot}
-					winStatus={winStatus}/>
-				<Footer 
-					onGamble={() => {this.onGamble()}}
-					onStart={() => {this.onStart()}}
-					onAutoSpin={() => {this.onAutoSpin()}}
-					winStatus={winStatus}
-					autoSpin={autoSpin}/>
-			</div>
+			<Router>
+					<div className="slot">
+					<Header 
+						onIncreaseBet={ this.onIncreaseBet}
+						onReduceBet={ this.onReduceBet}
+						balance={balance}
+						lastWin={lastWin}
+						bet={bet}/>
+					<Route path="/maingame"	component={MainGamePage} firstSlot={firstSlot}
+					  secondSlot={secondSlot}
+					  thirdSlot={thirdSlot}
+					  winStatus={winStatus}/>
+					
+					<Route path="/gamble" component={GamblePage} />
+							
+					<Footer 
+						onGamble={() => {this.onGamble()}}
+						onStart={() => {this.onStart()}}
+						onAutoSpin={() => {this.onAutoSpin()}}
+						winStatus={winStatus}
+						autoSpin={autoSpin}/>
+				</div>
+			</Router>
 		)
 	}
 }
